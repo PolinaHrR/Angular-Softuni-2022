@@ -1,0 +1,47 @@
+<div class="content d-flex flex-column h-100" role="main">
+  <header class="">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">LOGO</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse ms-auto" id="navbarScroll">
+          <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item" *appShowAuthenticated="false">
+              <a class="nav-link" [routerLink]="['/register']">Register</a>
+            </li>
+            <li class="nav-item" *appShowAuthenticated="false">
+              <a class="nav-link" [routerLink]="['/login']">Login</a>
+            </li>
+
+            <li class="nav-item" *appShowAuthenticated="true">
+              <a class="nav-link" [routerLink]="['/my-profile']">Profile</a>
+            </li>
+            <li class="nav-item" *appShowAuthenticated="true">
+              <button class="btn btn-outline-secondary" (click)="logout()">
+                Logout
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+
+
+  <!-- Footer -->
+  <footer class="shadow rounded">
+    <div class="container text-center">
+      <p>all rights reserved</p>
+    </div>
+  </footer>
+</div>

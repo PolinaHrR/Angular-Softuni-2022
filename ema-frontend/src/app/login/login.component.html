@@ -1,0 +1,31 @@
+<div class="text-uppercase text-center pt-5 ">
+  <h1>LOGIN page</h1>
+</div>
+
+<section class="my-section">
+
+<div class="row">
+  <div class="col-sm-4 mx-auto text-center">
+    <div class="card">
+    <div class="card-body">
+  <form [formGroup]="form" (ngSubmit)="login()" >
+    <div class="my-4">
+      <input id="identifier" type="text" formControlName="identifier" placeholder="Username" class="form-control">
+    </div>
+
+    <div class="my-4">
+      <input id="password" type="password" formControlName="password" placeholder="Password" class="form-control">
+    </div>
+
+    <button class="button btn btn-warning text-uppercase" type="submit">Login</button>
+
+    <div *ngIf="error">
+      {{ error }}
+    </div>
+  </form>
+</div>
+</div>
+</div>
+</div>
+
+</section>

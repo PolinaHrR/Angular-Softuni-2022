@@ -1,0 +1,109 @@
+query homepage {
+  items(pagination: {limit: 10}) {
+    data {
+      id
+      attributes {
+        title
+        description
+        city {
+          data {
+            attributes {
+              name
+            }
+          }
+        }
+        media {
+          data {
+            id
+            attributes {
+              url
+              alternativeText
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+query itemDetailPage($id: ID!) {
+  item(id: $id) {
+    data {
+      id
+      attributes {
+        title
+        description
+        age
+        gender
+        user {
+          data {
+            id
+            attributes {
+              username
+            }
+          }
+        }
+        city {
+          data {
+            id
+            attributes {
+              name
+            }
+          }
+        }
+        media {
+          data {
+            id
+            attributes {
+              url
+              alternativeText
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+mutation register($email: String!, $username: String!, $password: String!) {
+  register(input: {email: $email, password: $password, username: $username}) {
+    jwt
+    user {
+      id
+    }
+  }
+}
+
+mutation login($identifier: String!, $password: String!) {
+  login(input: {identifier: $identifier, password: $password}) {
+    jwt
+    user {
+      id
+    }
+  }
+}
+
+query createItemPage {
+  cities {
+    data {
+      id
+      attributes {
+        name
+      }
+    }
+  }
+}
+
+mutation uploadFile($media: Upload!) {
+  upload(file: $media) {
+    data {
+      id
+    }
+  }
+}
+
+mutation createItem($title: String!, $description: String!, $age: Int!, $gender: ENUM_ITEM_GENDER!, $user: ID!, $city: ID!, $uploadRef: ID!) {
+  createItem(data: {title: $title, description: $description, age: $age, gender: $gender, user: $user, city: $city, media: $uploadRef}) {
+    __typename
+  }
+}

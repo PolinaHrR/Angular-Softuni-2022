@@ -1,0 +1,27 @@
+<div class="py-5 mt-5 px-4 shadow rounded-3 border text-center bg-opacity-25 text-uppercase">
+  <h1>exchange of children's clothes and accessories</h1>
+</div>
+<section class="my-section">
+<div *ngFor="let item of (items | async)?.data" class="my-item">
+
+  <div class="row">
+    <div class="col-sm-9 mx-auto">
+      <div class="home-item">
+        <div class="row">
+          <div class="col-sm-3">
+        <img *ngIf="item?.attributes?.media" alt="{{ item?.attributes?.media?.data?.attributes?.alternativeText }}"
+             src="http://localhost:1337{{ item?.attributes?.media?.data?.attributes?.url }}" class="img-fluid"/>
+          </div>
+          <div class="col-sm-9">
+        <h3>{{ item?.attributes?.title }}</h3>
+        <p>{{ (item?.attributes?.description | slice:0:120) + '...' }}</p>
+        <p>Location: {{ item.attributes?.city?.data?.attributes?.name }}</p>
+            <a [routerLink]="['/items', item.id]" class="btn btn-warning">Read More</a>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>

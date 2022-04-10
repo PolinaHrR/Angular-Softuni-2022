@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_components_galleries",
+  "info": {
+    "displayName": "Gallery",
+    "icon": "allergies"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "carousel": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,46 @@
+
+
+
+
+
+<section class="my-section">
+  <div class="container">
+  <div *ngIf="item | async as theItem">
+    <div class="text-center mb-4">
+      <h1>{{ theItem?.data?.attributes?.title }}</h1>
+    </div>
+
+<div class="row">
+  <div class="col-md-3 text-center" *ngIf="theItem?.data?.attributes?.media?.data">
+    <img alt="{{ theItem?.data?.attributes?.media?.data?.attributes?.alternativeText }}"
+         src="http://localhost:1337{{ theItem?.data?.attributes?.media?.data?.attributes?.url }}" class="img-fluid mb-4"/>
+  </div>
+  <div class="col-md-9 mx-auto">
+    <ngb-accordion [closeOthers]="true" activeIds="static-1">
+      <ngb-panel id="static-1" title="Description">
+        <ng-template ngbPanelContent>
+          {{ theItem?.data?.attributes?.description }}
+        </ng-template>
+      </ngb-panel>
+      <ngb-panel id="static-2">
+        <ng-template ngbPanelTitle>
+          Information
+        </ng-template>
+        <ng-template ngbPanelContent>
+          Location: {{ theItem?.data?.attributes?.city?.data?.attributes?.name }}; <br/>
+          Age: {{ theItem?.data?.attributes?.age }}; <br/>
+          Gender: {{ theItem?.data?.attributes?.gender }}
+        </ng-template>
+      </ngb-panel>
+
+    </ngb-accordion>
+  </div>
+</div>
+
+
+
+
+  </div>
+  </div>
+</section>
+

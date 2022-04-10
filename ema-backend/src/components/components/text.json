@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_components_texts",
+  "info": {
+    "displayName": "Text",
+    "icon": "ad"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    }
+  }
+}
